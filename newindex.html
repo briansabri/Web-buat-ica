@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Icaaa Will You Be My Girlfriend?</title>
+  <style>
+    body {
+      background-color: pink;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 50px;
+      overflow: hidden;
+    }
+    h1 {
+      color: white;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 5px hotpink;
+    }
+    button {
+      font-size: 1.5em;
+      margin: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #yes {
+      background-color: #ff69b4;
+      color: white;
+    }
+    #no {
+      background-color: #f1f1f1;
+      color: black;
+      position: absolute;
+    }
+    .heart {
+      position: fixed;
+      width: 15px;
+      height: 15px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 3s linear infinite;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -7.5px;
+      left: 0;
+    }
+    .heart::after {
+      top: 0;
+      left: -7.5px;
+    }
+    @keyframes float {
+      0% {transform: translateY(0) rotate(45deg); opacity: 1;}
+      100% {transform: translateY(-600px) rotate(45deg); opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+  <h1>Icaaa, will you be my girlfriend?</h1>
+  <button id="yes">Aku mauuuu</button>
+  <button id="no">MOH AKU MOH</button>
+
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const yesBtn = document.getElementById('yes');
+    yesBtn.addEventListener('click', () => {
+      yesBtn.innerText = 'Yeeeyy!!';
+      setTimeout(() => {
+        window.location.href = 'page2.html';
+      }, 1500); // Delay 1.5 detik
+    });
+
+    const noBtn = document.getElementById('no');
+    noBtn.addEventListener('mouseover', () => {
+      const i = Math.floor(Math.random() * (window.innerWidth - 100));
+      const j = Math.floor(Math.random() * (window.innerHeight - 50));
+      noBtn.style.left = i + 'px';
+      noBtn.style.top = j + 'px';
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = e.pageX + 'px';
+      heart.style.top = e.pageY + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 3000);
+    });
+  </script>
+</body>
+</html>
