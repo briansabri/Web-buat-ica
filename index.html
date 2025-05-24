@@ -71,7 +71,10 @@
   </audio>  <script>
     const yesBtn = document.getElementById('yes');
     yesBtn.addEventListener('click', () => {
-      window.location.href = 'page2.html';
+      yesBtn.innerText = 'Yeeeyy!!';
+      setTimeout(() => {
+        window.location.href = 'page2.html';
+      }, 1500); // Delay 1.5 detik sebelum pindah halaman
     });
 
     const noBtn = document.getElementById('no');
