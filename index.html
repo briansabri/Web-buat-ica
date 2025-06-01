@@ -1,1 +1,73 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Letter</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fdf6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+    .envelope {
+      position: relative;
+      width: 200px;
+      height: 120px;
+      background: #fff;
+      border: 2px solid #d16ba5;
+      cursor: pointer;
+      transition: transform 1s ease-in-out;
+    }
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 60px solid #d16ba5;
+      transition: transform 1s ease-in-out;
+      transform-origin: top;
+    }
+    .heart {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: #d16ba5;
+      transition: opacity 0.5s;
+    }
+    .opened .flap {
+      transform: rotateX(180deg);
+    }
+    .opened .heart {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope" onclick="openEnvelope()">
+    <div class="flap"></div>
+    <div class="heart">❤️</div>
+  </div>
 
+  <script>
+    function openEnvelope() {
+      const envelope = document.querySelector('.envelope');
+      envelope.classList.add('opened');
+      setTimeout(() => {
+        window.location.href = 'rose.html';
+      }, 1200); // Delay sebelum pindah ke halaman rose.html
+    }
+  </script>
+</body>
+</html>
